@@ -131,8 +131,8 @@ int main(int argc, char *argv[]){
                 cnt--;
                 valid_ending = true;
             }
-        }else{
-            valid_ending = false;
+        }else if(isalpha(buffer[cnt-1]){
+            valid_ending = true;
         }
         
         buffer[cnt] = '\0';
