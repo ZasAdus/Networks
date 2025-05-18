@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -g
 LDFLAGS = -lcurl
 TARGET = main
-SRCS = main.cpp discogs_api.cpp bands.cpp artist.cpp
+SRCS = main.cpp discogs_api.cpp print_common_bands.cpp artist.cpp
 OBJS = $(SRCS:.cpp=.o)
 EXAMPLE_ARGS = 516820 532854 702387  #example args for main
 

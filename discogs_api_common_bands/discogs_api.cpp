@@ -23,11 +23,11 @@ int fetch_artist(int artist_id){
 
     int attempt = 1;
     const int max_attempts = 10;
-    bool is_res_200 = false;
+    bool is_response_200 = false;
     long http_code = 0; 
 
     CURLcode res;
-    while(attempt <= max_attempts && !is_res_200){
+    while(attempt <= max_attempts && !is_response_200){
         res = curl_easy_perform(curl);
         curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
         if(res != CURLE_OK){
@@ -38,7 +38,7 @@ int fetch_artist(int artist_id){
         if(http_code == 200){
             ptr->get_bands();
             artist_ptrs.push_back(std::move(artist));
-            is_res_200 = true;
+            is_response_200 = true;
         }else if(http_code == 429){
             std::cerr << "Rate limited, retrying attempt: " << attempt << "/10" << std::endl;
             ++attempt;
@@ -51,5 +51,5 @@ int fetch_artist(int artist_id){
 
     curl_easy_cleanup(curl);
 
-    return is_res_200 ? 0 : 1;
+    return is_response_200 ? 0 : 1;
 }

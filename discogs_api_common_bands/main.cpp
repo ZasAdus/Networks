@@ -1,10 +1,9 @@
 #include <iostream>
 #include <curl/curl.h>
 #include <string>
-#include <algorithm>
 #include "discogs_api.hpp"
 #include "artist.hpp"
-#include "bands.hpp"
+#include "print_common_bands.hpp"
 #include "json.hpp" //biblioteka dostepna pod linkiem: https://github.com/nlohmann/json/releases
 
 //g++ main.cpp artist.cpp discogs_api.cpp bands.cpp -o main -Wall -lcurl
@@ -41,7 +40,7 @@ int main(int argc, char* argv[]){
             return 1;
         }
     }
-    print_common_groups();
+    print_common_bands();
     curl_global_cleanup();
     return 0;
 }
