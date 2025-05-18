@@ -19,7 +19,7 @@ int fetch_artist(int artist_id){
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, Artist::callback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, ptr);
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "cokolwiek");
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "DiscogsAPI_common_bands_for_artists/v1.0 +MyMail:dawidciuba.com@gmail.com");
 
     int attempt = 1;
     const int max_attempts = 10;
